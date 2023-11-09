@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "37520b16-61e3-4f58-865f-94fadc0af146",
+		"name": "ASSISTANTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28810841"
+	},
+	"item": [
+		{
+			"name": "AssistantsGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ida\": \"\",\r\n    \"nameassistant\": \"\",\r\n    \"roleassistant\": \"\",\r\n    \"ageassistant\" : \"\",\r\n    \"confassistant\": \"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/assistan"
+			},
+			"response": []
+		},
+		{
+			"name": "AssistantsPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ida\": 1,\r\n    \"nameassistant\": \"pepe\",\r\n    \"roleassistant\": \"visitante\",\r\n    \"ageassistant\" : \"25\",\r\n    \"confassistant\": \"1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/assistan"
+			},
+			"response": []
+		},
+		{
+			"name": "AssistantsPut",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ida\": 1,\r\n        \"nameassistant\": \"Sergio\",\r\n        \"roleassistant\": \"visitante\",\r\n        \"ageassistant\": 25,\r\n        \"confassistant\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/assistan"
+			},
+			"response": []
+		},
+		{
+			"name": "AssistantsPatch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ida\": 1,\r\n        \"nameassistant\": \"LOL\",\r\n        \"roleassistant\": \"visitante\",\r\n        \"ageassistant\": 25,\r\n        \"confassistant\": 1\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/assistan"
+			},
+			"response": []
+		},
+		{
+			"name": "AssistantsDel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"ida\": 1,\r\n        \"nameassistant\": \"LOL\",\r\n        \"roleassistant\": \"visitante\",\r\n        \"ageassistant\": 25,\r\n        \"confassistant\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/assistan/delete/1"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

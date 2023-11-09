@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "6c1d6467-8314-4bed-a504-e692a9af3829",
+		"name": "CONFERENCE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28810841"
+	},
+	"item": [
+		{
+			"name": "ConferenceGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idc\": \"\",\r\n    \"titconference\": \"\",\r\n    \"desconference\": \"\",\r\n    \"citconference\": \"\",\r\n    \"totassconference\": \"\"\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/conference"
+			},
+			"response": []
+		},
+		{
+			"name": "ConferencePost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idc\": \"2\",\r\n    \"titconference\": \"Los mejores\",\r\n    \"desconference\": \"FUll HD\",\r\n    \"citconference\": \"machala\",\r\n    \"totassconference\": \"14\"\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/conference"
+			},
+			"response": []
+		},
+		{
+			"name": "ConferencePut",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"idc\": 1,\r\n        \"titconference\": \"Exterminador\",\r\n        \"desconference\": \"vista en 2d\",\r\n        \"citconference\": \"miami\",\r\n        \"totassconference\": \"12\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/conference"
+			},
+			"response": []
+		},
+		{
+			"name": "ConferencePatch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"idc\": 1,\r\n        \"titconference\": \"INDIO\",\r\n        \"desconference\": \"vista en 2d\",\r\n        \"citconference\": \"miami\",\r\n        \"totassconference\": \"12\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/conference"
+			},
+			"response": []
+		},
+		{
+			"name": "ConferenceDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"idc\": 2,\r\n        \"titconference\": \"Los mejores\",\r\n        \"desconference\": \"FUll HD\",\r\n        \"citconference\": \"machala\",\r\n        \"totassconference\": \"14\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/conference/delete/2"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
