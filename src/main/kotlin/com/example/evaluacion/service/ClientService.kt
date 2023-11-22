@@ -1,35 +1,44 @@
 package com.example.evaluacion.service
 
+import com.example.evaluacion.model.Assistan
 import com.example.evaluacion.model.Conference
+import com.example.evaluacion.repository.AssistanRepository
 import com.example.evaluacion.repository.ConferenceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
+import kotlin.math.asin
 
 @Service
-class ConferenceService {
-
+class AssistanService {
     @Autowired
     lateinit var conferenceRepository: ConferenceRepository
+    @Autowired
+    lateinit var assistanRepository: AssistanRepository
 
-    fun list ():List<Conference>{
-        return conferenceRepository.findAll()
+    fun list ():List<Assistan>{
+        return assistanRepository.findAll()
     }
-    fun save(conference: Conference): Conference {
+    fun save(assistan: Assistan): Assistan {
         try{
+            conferenceRepository.findById(assistan.confassistant)
+                ?: throw Exception("Id del cliente no encontrada")
             //El objeto debe estar verificado.
-            conference.titconference?.takeIf{it.trim().isNotEmpty()}
+            assistan.nameassistant?.takeIf{it.trim().isNotEmpty()}
                 ?:throw Exception("Nombres no debe ser vacio")
-            conference.desconference?.takeIf{it.trim().isNotEmpty()}
+            assistan.roleassistant?.takeIf{it.trim().isNotEmpty()}
                 ?:throw Exception("Nombres no debe ser vacio")
-            conference.citconference?.takeIf{it.trim().isNotEmpty()}
-                ?:throw Exception("Nombres no debe ser vacio")
-            conference.totassconference?.takeIf{it.trim().isNotEmpty()}
-                ?:throw Exception("Nombres no debe ser vacio")
+            assistan.ageassistant?.let {
+                if (it <= 0) {
+                    throw Exception("La edad debe ser un valor entero positivo")
+                }
+            } ?: throw Exception("La edad no debe ser nula")
 
 
-            return conferenceRepository.save(conference)
+
+
+            return assistanRepository.save(assistan)
 
         }
         catch (ex:Exception){  //LANZA UN ERROR para ser manejado por el programador el cual debe hacerlo de una manera mas descriptiva.
@@ -38,42 +47,42 @@ class ConferenceService {
     }
 
 
-    fun update(conference: Conference): Conference {
+    fun update(assistan: Assistan): Assistan {
         try {                   //llama base de datos y devuelve un solo valor de la tabla o registro programado
-            conferenceRepository.findById(conference.idc)
+            assistanRepository.findById(assistan.ida)
                 ?: throw Exception("ID no existe")
             //'save' sirve para actualizar y guardar el dato ingresado.
-            return conferenceRepository.save(conference)
+            return assistanRepository.save(assistan)
         }
         catch (ex:Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
-    fun updateName(conference: Conference): Conference {
+    fun updateName(assistan: Assistan): Assistan {
         try{        //en caso de que exista el registro se va a posicionar.
-            val response = conferenceRepository.findById(conference.idc)
+            val response = assistanRepository.findById(assistan.ida)
                 ?: throw Exception("ID no existe")    // nos permite editar el registro que recuperamos de la base de datos
 
             response.apply {
                 //campo de la tabla
-                titconference = conference.titconference
+                nameassistant = assistan.nameassistant
             }
-            return conferenceRepository.save(response)
+            return assistanRepository.save(response)
         }
         catch (ex:Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
     //Se pide un solo registro de la tabla de base de datos.
-    fun listById (idc:Long?):Conference?{
-        return conferenceRepository.findById(idc)
+    fun listById (ida:Long?):Assistan?{
+        return assistanRepository.findById(ida)
     }
 
-    fun delete (idc: Long?):Boolean?{
+    fun delete (ida: Long?):Boolean?{
         try{
-            val response = conferenceRepository.findById(idc)
+            val response = assistanRepository.findById(ida)
                 ?: throw Exception("ID no existe")
-            conferenceRepository.deleteById(idc!!)
+            assistanRepository.deleteById(ida!!)
             return true
         }
         catch (ex:Exception){

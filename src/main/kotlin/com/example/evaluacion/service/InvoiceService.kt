@@ -22,6 +22,8 @@ class AssistanService {
     }
     fun save(assistan: Assistan): Assistan {
         try{
+            conferenceRepository.findById(assistan.confassistant)
+                ?: throw Exception("Id del cliente no encontrada")
             //El objeto debe estar verificado.
             assistan.nameassistant?.takeIf{it.trim().isNotEmpty()}
                 ?:throw Exception("Nombres no debe ser vacio")
